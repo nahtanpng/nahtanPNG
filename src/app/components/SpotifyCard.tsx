@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import Card from "./Card";
-import { SiSpotify } from "react-icons/si";
-import { PlayIcon, PauseIcon, MusicNoteIcon } from "@phosphor-icons/react";
-import Image from "next/image";
+import { useState, useEffect } from 'react';
+import Card from './Card';
+import { SiSpotify } from 'react-icons/si';
+import { PlayIcon, PauseIcon, MusicNoteIcon } from '@phosphor-icons/react';
+import Image from 'next/image';
 
 interface SpotifyTrack {
   name: string;
@@ -30,7 +30,7 @@ export default function SpotifyCard() {
 
   const fetchLastPlayed = async () => {
     try {
-      const response = await fetch("/api/spotify/last-played");
+      const response = await fetch('/api/spotify/last-played');
 
       if (response.ok) {
         const data = await response.json();
@@ -38,15 +38,15 @@ export default function SpotifyCard() {
         setError(false);
         setUseDemo(false);
       } else {
-        console.log("API não disponível, usando dados de demonstração");
+        console.log('API não disponível, usando dados de demonstração');
         setUseDemo(true);
         setError(false);
       }
 
       setLoading(false);
     } catch (err) {
-      console.error("Erro ao buscar última música:", err);
-      console.log("Usando dados de demonstração");
+      console.error('Erro ao buscar última música:', err);
+      console.log('Usando dados de demonstração');
       setUseDemo(true);
       setError(false);
       setLoading(false);
@@ -60,7 +60,7 @@ export default function SpotifyCard() {
       (now.getTime() - date.getTime()) / (1000 * 60)
     );
 
-    if (diffInMinutes < 1) return "Agora mesmo";
+    if (diffInMinutes < 1) return 'Agora mesmo';
     if (diffInMinutes < 60) return `${diffInMinutes}m atrás`;
     if (diffInMinutes < 1440) return `${Math.floor(diffInMinutes / 60)}h atrás`;
     return `${Math.floor(diffInMinutes / 1440)}d atrás`;
@@ -91,7 +91,7 @@ export default function SpotifyCard() {
   }
 
   return (
-    <div className="spotify-card relative rounded-2xl shadow-lg border dark:border-zinc-700 overflow-hidden min-h-[200px] hover:scale-[1.02] transition-all duration-500 group">
+    <div className="spotify-card relative rounded-2xl shadow-lg border dark:border-zinc-700 overflow-hidden min-h-[200px] transition-all duration-500 group">
       {track.image && (
         <div className="spotify-card-background absolute inset-0">
           <Image
@@ -121,7 +121,7 @@ export default function SpotifyCard() {
           <div className="flex items-center gap-2">
             <SiSpotify size={20} className="text-[#1DB954] animate-pulse" />
             <span className="text-sm font-semibold text-white pixel-font drop-shadow-lg">
-              {track.isPlaying ? "Tocando agora" : "Última música"}
+              {track.isPlaying ? 'Tocando agora' : 'Última música'}
             </span>
           </div>
           <div className="flex items-center gap-2">
