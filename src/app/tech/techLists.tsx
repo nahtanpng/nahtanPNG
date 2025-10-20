@@ -26,7 +26,6 @@ import {
   SiFirebase,
   SiSqlite,
   SiDocker,
-  SiAmazon,
   SiCloudflare,
   SiGooglecloud,
   SiRabbitmq,
@@ -39,6 +38,7 @@ import {
   SiTerraform,
   SiKubernetes,
   SiGo,
+  SiAmazonwebservices,
 } from 'react-icons/si';
 
 export const frontendList = [
@@ -201,7 +201,7 @@ export const devopsList = [
   },
   {
     name: 'AWS',
-    logo: <SiAmazon color="#FF9900" size={20} />,
+    logo: <SiAmazonwebservices color="#FF9900" size={20} />,
     color: '#FF9900',
   },
   {
