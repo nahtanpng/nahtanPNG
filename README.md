@@ -1,7 +1,13 @@
 <div align="center">
 
 <pre><i>Each dream you leave behind is a part of your future that will no longer exist.</i></pre>
-
+  <p align="center">
+    <samp>
+      [<a href="mailto:nathan.ferreiira.dev@gmail.com" target="_blank">e-mail</a>]
+      [<a href="https://discord.com/users/457725135940616202" target="_blank">discord</a>]
+      [<a href="https://www.linkedin.com/in/devnahtan" target="_blank">linkedin</a>]
+    </samp>
+  </p>
 <h2></h2>
 
 <div align="left"> 
@@ -25,9 +31,11 @@
 
   <p align="left">
     <samp>
-      [<a href="mailto:nathan.ferreiira.dev@gmail.com" target="_blank">e-mail</a>]
-      [<a href="https://discord.com/users/457725135940616202" target="_blank">discord</a>]
-      [<a href="https://www.linkedin.com/in/devnahtan" target="_blank">linkedin</a>]
+      [<a href="https://www.boot.dev/u/nahtanpng" target="_blank">boot.dev</a>]
+      [<a href="https://cursos.alura.com.br/user/nahtanpng" target="_blank">alura</a>]
+      [<a href="https://tryhackme.com/p/nahtanpng" target="_blank">tryhackme</a>]
+      [<a href="https://www.cloudskillsboost.google/public_profiles/1f11381f-0db2-4d43-8bbf-e8e236f214c2" target="_blank">gcp skill boost</a>]
+      [<a href="https://skillsprofile.skillbuilder.aws/user/nahtanpng/certification-badges" target="_blank">aws skill builder</a>]
     </samp>
   </p>
 </div>
