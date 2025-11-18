@@ -36,6 +36,7 @@
       [<a href="https://tryhackme.com/p/nahtanpng" target="_blank">tryhackme</a>]
       [<a href="https://www.cloudskillsboost.google/public_profiles/1f11381f-0db2-4d43-8bbf-e8e236f214c2" target="_blank">gcp skill boost</a>]
       [<a href="https://skillsprofile.skillbuilder.aws/user/nahtanpng/certification-badges" target="_blank">aws skill builder</a>]
+      [<a href="https://bckl.gg/pKIf" target="_blank">backloggd</a>]
     </samp>
   </p>
 </div>
