@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Card from "./Card";
+import Image from 'next/image';
+import Card from './Card';
 
 export default function AboutCard() {
   return (
     <Card className="card-glass col-span-1 md:col-span-2 p-8 flex flex-col justify-center items-start">
       <div className="flex items-center gap-4 mb-3">
         <Image
-          src="/nathan.JPG"
+          src="/nathan-perfil.jpeg"
           alt="Avatar"
           width={500}
           height={500}

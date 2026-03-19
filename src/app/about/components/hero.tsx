@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
 
 import {
   BracketsAngleIcon,
   CalendarIcon,
   MapPinIcon,
-} from "@phosphor-icons/react";
-import { useFadeInOnScroll } from "@/app/utils/useFadeInOnScroll";
+} from '@phosphor-icons/react';
+import { useFadeInOnScroll } from '@/app/utils/useFadeInOnScroll';
 
 export default function HeroSection() {
   const aboutRef = useFadeInOnScroll();
@@ -18,7 +18,7 @@ export default function HeroSection() {
       ref={aboutRef}
     >
       <Image
-        src="/nathan.JPG"
+        src="/nathan.jpeg"
         alt="Avatar"
         width={1000}
         height={1000}

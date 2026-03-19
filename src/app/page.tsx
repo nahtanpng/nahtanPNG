@@ -8,7 +8,7 @@ import ProjectContactCard from './components/ProjectContactCard';
 
 import { useState, useEffect } from 'react';
 import SpotifyCard from './components/SpotifyCard';
-import DiscordCard from './components/DiscordCard';
+import MangaCarouselCard from './components/MangaCarouselCard';
 
 export default function Home() {
   const [language, setLanguage] = useState('pt');
@@ -30,7 +30,7 @@ export default function Home() {
       <div className="w-full max-w-5xl">
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
           <AboutCard />
-          <DiscordCard />
+          <MangaCarouselCard />
           <JourneyCard />
           <GithubCard />
           <SpotifyCard />
