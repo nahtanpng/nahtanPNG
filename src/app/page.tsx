@@ -9,6 +9,7 @@ import ProjectContactCard from './components/ProjectContactCard';
 import { useState, useEffect } from 'react';
 import SpotifyCard from './components/SpotifyCard';
 import MangaCarouselCard from './components/MangaCarouselCard';
+import { ASCIIWave } from './components/AsciiWave';
 
 export default function Home() {
   const [language, setLanguage] = useState('pt');
@@ -26,8 +27,10 @@ export default function Home() {
   }, [language]);
 
   return (
-    <main className="min-h-screen flex flex-col justify-center items-center p-6 pt-24">
-      <div className="w-full max-w-5xl">
+    <main className="relative isolate min-h-screen flex flex-col justify-center items-center p-6 pt-24 overflow-hidden">
+      <ASCIIWave className="z-0" />
+
+      <div className="relative z-10 w-full max-w-5xl">
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
           <AboutCard />
           <MangaCarouselCard />
