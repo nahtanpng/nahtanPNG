@@ -15,7 +15,7 @@
 
 - Enthusiast of software development.
 - Currently working with <b>Nest.js</b>, <b>React</b> & <b>TypeScript</b>.
-- Dedicated to deepening my understanding of ), software architecture, devops, andlow-level.
+- Dedicated to deepening my understanding of cloud computing (AWS & GCP), software architecture, devops, and low-level.
 
 /stuff
 
@@ -28,8 +28,8 @@
 
 [<a href="https://www.boot.dev/u/nahtanpng">boot.dev</a>]
 [<a href="https://cursos.alura.com.br/user/nahtanpng">alura</a>]
-[<a href="https://www.cloudskillsboost.google0db2-4d43-8bbf-e8e236f214c2">gcp skillboost</a>]
-[<a href="https://skillsprofile.skillbuilder.cation-badges">aws skill builder</a>]
+[<a href="https://www.cloudskillsboost.google/public_profiles/1f11381f-0db2-4d43-8bbf-e8e236f214c2">gcp skillboost</a>]
+[<a href="https://skillsprofile.skillbuilder.aws/user/nahtanpng/certification-badges">aws skill builder</a>]
 
 </div>
 
