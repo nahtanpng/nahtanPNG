@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+<samp>
 
-## Getting Started
+<pre><i>Each dream you leave behind is a part of your future that will no longer exist.</i></pre>
 
-First, run the development server:
+[<a href="mailto:nathan.ferreiira.dev@gmail.com">e-mail</a>]
+[<a href="https://www.linkedin.com/in/nathanferreiradev">linkedin</a>]
+[<a href="https://discord.com/users/457725135940616202">discord</a>]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<hr>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<div align="left">
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+/about
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Enthusiast of software development.
+- Currently working with <b>Nest.js</b>, <b>React</b> & <b>TypeScript</b>.
+- Dedicated to deepening my understanding of cloud computing (AWS & GCP), software architecture, devops, and low-level.
 
-## Learn More
+/stuff
 
-To learn more about Next.js, take a look at the following resources:
+- <b><a href="https://github.com/nahtanpng/pokedex-cli">pokedex-cli</a></b> — terminal Pokédex for quick mid-run lookups: weaknesses, evolution and where to find it, for the game you're actually playing.
+- <b><a href="https://github.com/nahtanpng/node-api-terraform">node-api-terraform</a></b> — serverless transactions API on AWS Lambda + DynamoDB, provisioned with Terraform.
+- <b><a href="https://github.com/nahtanpng/xml-to-excel">xml-to-excel</a></b> — turns raw NF-e/NFS-e invoice XML into a clean Excel report. Built for people who don't use a terminal.
+- <b><a href="https://github.com/nahtanpng/cheapo-bot">cheapo-bot</a></b> — Discord economy bot.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/links
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[<a href="https://www.boot.dev/u/nahtanpng">boot.dev</a>]
+[<a href="https://cursos.alura.com.br/user/nahtanpng">alura</a>]
+[<a href="https://www.cloudskillsboost.google/public_profiles/1f11381f-0db2-4d43-8bbf-e8e236f214c2">gcp skillboost</a>]
+[<a href="https://skillsprofile.skillbuilder.aws/user/nahtanpng/certification-badges">aws skill builder</a>]
 
-## Deploy on Vercel
+</div>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</samp>
+</div>
