@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #fbfbfa;
+  --head: rgba(251, 251, 250, 0.82);
+  --fg: #121211;
+  --muted: #5f5f5b;
+  --faint: #a3a39e;
+  --line: #e3e3df;
+  --chip: #f2f2ef;
+  --hover: #efefeb;
+  --scrim: rgba(18, 18, 17, 0.28);
+  --c0: #ebebe8;
+  --c1: #c8c8c3;
+  --c2: #979792;
+  --c3: #5c5c58;
+  --c4: #1c1c1b;
+  --danger: #b42318;
+}
+
+.dark {
+  --bg: #0c0c0b;
+  --head: rgba(12, 12, 11, 0.82);
+  --fg: #ececea;
+  --muted: #9d9d98;
+  --faint: #4f4f4b;
+  --line: #262624;
+  --chip: #151514;
+  --hover: #1c1c1b;
+  --scrim: rgba(0, 0, 0, 0.6);
+  --c0: #1b1b1a;
+  --c1: #373735;
+  --c2: #666662;
+  --c3: #a5a5a0;
+  --c4: #ececea;
+  --danger: #f97066;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-head: var(--head);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-chip: var(--chip);
+  --color-hover: var(--hover);
+  --color-scrim: var(--scrim);
+  --color-c0: var(--c0);
+  --color-c1: var(--c1);
+  --color-c2: var(--c2);
+  --color-c3: var(--c3);
+  --color-c4: var(--c4);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --animate-blink: blink 1.1s step-end infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}

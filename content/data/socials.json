@@ -1,0 +1,30 @@
+[
+  {
+    "label": "GitHub",
+    "handle": "nahtanpng",
+    "href": "https://github.com/nahtanpng",
+    "icon": "github",
+    "hint": "github.com"
+  },
+  {
+    "label": "LinkedIn",
+    "handle": "nathanferreiradev",
+    "href": "https://www.linkedin.com/in/nathanferreiradev/",
+    "icon": "linkedin",
+    "hint": "linkedin.com"
+  },
+  {
+    "label": "Discord",
+    "handle": "nahtanpng",
+    "href": "https://discord.com/users/457725135940616202",
+    "icon": "discord",
+    "hint": "discord.com"
+  },
+  {
+    "label": "Email",
+    "handle": "nathan.ferreiira.dev@gmail.com",
+    "href": "mailto:nathan.ferreiira.dev@gmail.com",
+    "icon": "mail",
+    "hint": "mail"
+  }
+]

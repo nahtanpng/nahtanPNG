@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nathan — Portfolio</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+.t-light{--bg:#fbfbfa;--head:rgba(251,251,250,.82);--fg:#121211;--muted:#5f5f5b;--faint:#a3a39e;--line:#e3e3df;--chip:#f2f2ef;--hover:#efefeb;--scrim:rgba(18,18,17,.28);--c0:#ebebe8;--c1:#c8c8c3;--c2:#979792;--c3:#5c5c58;--c4:#1c1c1b}
+.t-dark{--bg:#0c0c0b;--head:rgba(12,12,11,.82);--fg:#ececea;--muted:#9d9d98;--faint:#4f4f4b;--line:#262624;--chip:#151514;--hover:#1c1c1b;--scrim:rgba(0,0,0,.6);--c0:#1b1b1a;--c1:#373735;--c2:#666662;--c3:#a5a5a0;--c4:#ececea}
+a{color:inherit}a:hover{color:inherit}
+.navlink{color:var(--muted);text-decoration:none;transition:color .15s ease}
+.navlink:hover{color:var(--fg)}
+.card{transition:background-color .15s ease,border-color .15s ease}
+.card:hover{background:var(--hover)}
+.post-cover{transition:background-color .15s ease}
+.post-card:hover .post-cover{background:var(--hover)}
+.post-card:hover h3{text-decoration:underline;text-underline-offset:3px}
+.searchbtn:hover{border-color:var(--faint)}
+.iconbtn:hover{background:var(--hover)}
+.palette-input{outline:none}
+@keyframes blink{50%{opacity:0}}
+.cursor{animation:blink 1.1s step-end infinite}
+@media (max-width:720px){.nav{display:none}.search-label{display:none}}
+</style>
+</helmet>
+<div id="top" class="{{themeClass}}" tabIndex="-1" onKeyDown="{{onKey}}" style="background: var(--bg); color: var(--fg); font-family: 'Geist', ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; outline: none">
+
+<!-- header -->
+<header style="position: sticky; top: 0; z-index: 20; background: var(--head); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
+<div style="max-width: 760px; margin: 0 auto; padding: 0 20px; height: 64px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" aria-label="Home" style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 15px; font-weight: 500; text-decoration: none; color: var(--fg); flex: none">[nf]</a>
+<nav class="nav" aria-label="Main" style="display: flex; align-items: center; gap: 22px; font-size: 14px">
+<a class="navlink" href="#experience">Experience</a>
+<a class="navlink" href="#education">Education</a>
+<a class="navlink" href="#projects">Projects</a>
+<a class="navlink" href="#skills">Skills</a>
+<a class="navlink" href="#blog">Blog</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 8px; flex: none">
+<button class="searchbtn" type="button" onClick="{{openSearch}}" aria-label="Search (Ctrl K)" style="height: 36px; display: flex; align-items: center; gap: 8px; padding: 0 6px 0 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--chip); color: var(--muted); font: inherit; font-size: 13px; cursor: pointer; transition: border-color .15s ease">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<span class="search-label" style="min-width: 64px; text-align: left">Search…</span>
+<kbd style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 5px; background: var(--bg); color: var(--muted)">Ctrl K</kbd>
+</button>
+<button class="iconbtn" type="button" onClick="{{toggleTheme}}" aria-label="Toggle theme" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; border-radius: 9px; background: transparent; color: var(--fg); cursor: pointer; transition: background-color .15s ease">
+<sc-if value="{{isDark}}" hint-placeholder-val="{{ false }}">
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+</sc-if>
+<sc-if value="{{isLight}}" hint-placeholder-val="{{ true }}">
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+</sc-if>
+</button>
+</div>
+</div>
+</header>
+
+<main style="max-width: 760px; margin: 0 auto; padding: 8px 20px 120px; box-sizing: border-box; display: flex; flex-direction: column; gap: 88px">
+
+<!-- profile -->
+<section aria-label="Profile" style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column">
+<div aria-hidden="true" style="height: 200px; border-radius: 16px; background: var(--chip); overflow: hidden; display: flex; justify-content: center; align-items: flex-end; padding-bottom: 6px; box-sizing: border-box">
+<pre style="margin: 0; flex: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; line-height: 13px; color: var(--faint); user-select: none">{{banner}}</pre>
+</div>
+<div style="padding: 0 16px; display: flex; flex-direction: column; gap: 16px">
+<div style="margin-top: -60px; position: relative; z-index: 1; width: 124px; height: 124px; box-sizing: border-box; border-radius: 50%; border: 5px solid var(--bg); background: var(--chip); display: flex; align-items: center; justify-content: center">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted)">[SUA FOTO]</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-size: 28px; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em">Nathan Ferreira</h1>
+<p style="margin: 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 14px; color: var(--muted)">Full Stack Developer<span class="cursor" style="color: var(--fg)">_</span></p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--muted)">
+<div style="display: flex; align-items: center; gap: 6px">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>São Paulo, Brazil</span>
+</div>
+<div style="display: flex; align-items: center; gap: 6px">
+<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px">{{time}} · GMT-3</span>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 12px">
+<a class="card" href="https://github.com/" style="display: flex; align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: var(--fg)">
+<div style="width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 9px; background: var(--chip)">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.650-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0">
+<span style="font-size: 15px; font-weight: 500">GitHub</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: var(--muted)">[seu-usuario]</span>
+</div>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--muted); flex: none"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
+</a>
+<a class="card" href="https://www.linkedin.com/" style="display: flex; align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: var(--fg)">
+<div style="width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 9px; background: var(--chip)">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0">
+<span style="font-size: 15px; font-weight: 500">LinkedIn</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: var(--muted)">[seu-usuario]</span>
+</div>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--muted); flex: none"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
+</a>
+<a class="card" href="https://x.com/" style="display: flex; align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: var(--fg)">
+<div style="width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 9px; background: var(--chip)">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l11.7 16H20L8.3 4z"></path><path d="M4 20l6.8-6.8"></path><path d="M13.2 10.8 20 4"></path></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0">
+<span style="font-size: 15px; font-weight: 500">X</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: var(--muted)">@[seu-usuario]</span>
+</div>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--muted); flex: none"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
+</a>
+<a class="card" href="mailto:" style="display: flex; align-items: center; gap: 14px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; text-decoration: none; color: var(--fg)">
+<div style="width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: 9px; background: var(--chip)">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; flex-grow: 1; min-width: 0">
+<span style="font-size: 15px; font-weight: 500">Email</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: var(--muted)">[seu@email.com]</span>
+</div>
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--muted); flex: none"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>
+</a>
+</div>
+</section>
+
+<!-- about -->
+<section id="about" style="display: flex; flex-direction: column; gap: 20px; scroll-margin-top: 80px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted)">// about</span>
+<h2 style="margin: 0; font-size: 30px; line-height: 1.1; font-weight: 600; letter-spacing: -0.02em">{{greeting}}</h2>
+</div>
+<pre aria-hidden="true" style="margin: 0; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; line-height: 13px; color: var(--faint); user-select: none">{{mini}}</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; font-size: 15px; line-height: 1.7; text-wrap: pretty">
+<p style="margin: 0">I'm Nathan, a full stack developer based in São Paulo, Brazil. I build web and mobile products end to end — interfaces in React, Next.js and React Native, APIs in Node.js and NestJS, all written in TypeScript.</p>
+<p style="margin: 0; color: var(--muted)">On the data side I work with PostgreSQL and MySQL, and I ship through CI/CD pipelines on GitHub Actions deploying to Google Cloud Run. I also build and maintain websites for a digital marketing agency.</p>
+</div>
+</section>
+
+<!-- github -->
+<section id="github" style="display: flex; flex-direction: column; gap: 20px; scroll-margin-top: 80px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted)">// github</span>
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Contributions</h2>
+</div>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted)">[TOTAL] in the last year</span>
+</div>
+<div style="overflow-x: auto">
+<div role="img" aria-label="GitHub contribution calendar for the last year" style="display: flex; flex-direction: column; gap: 6px; width: max-content">
+<div aria-hidden="true" style="display: flex; gap: 3px; margin-left: 30px; height: 12px">
+<sc-for list="{{weeks}}" as="wk" hint-placeholder-count="53">
+<div style="width: 10px; flex: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; line-height: 12px; white-space: nowrap; overflow: visible; color: var(--muted)">{{wk.label}}</div>
+</sc-for>
+</div>
+<div aria-hidden="true" style="display: flex; gap: 3px">
+<div style="width: 27px; flex: none; display: grid; grid-template-rows: repeat(7, 10px); row-gap: 3px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 9px; line-height: 10px; color: var(--muted)">
+<div></div><div>Mon</div><div></div><div>Wed</div><div></div><div>Fri</div><div></div>
+</div>
+<sc-for list="{{weeks}}" as="wk" hint-placeholder-count="53">
+<div style="display: flex; flex-direction: column; gap: 3px; flex: none">
+<sc-for list="{{wk.days}}" as="day" hint-placeholder-count="7">
+<div style="width: 10px; height: 10px; border-radius: 2px; background: {{day.bg}}"></div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted)">
+<a href="https://github.com/" style="color: var(--muted)">github.com/[seu-usuario]</a>
+<div style="display: flex; align-items: center; gap: 4px">
+<span style="margin-right: 4px">Less</span>
+<div style="width: 10px; height: 10px; border-radius: 2px; background: var(--c0)"></div>
+<div style="width: 10px; height: 10px; border-radius: 2px; background: var(--c1)"></div>
+<div style="width: 10px; height: 10px; border-radius: 2px; background: var(--c2)"></div>
+<div style="width: 10px; height: 10px; border-radius: 2px; background: var(--c3)"></div>
+<div style="width: 10px; height: 10px; border-radius: 2px; background: var(--c4)"></div>
+<span style="margin-left: 4px">More</span>
+</div>
+</div>
+</section>
+
+<!-- experience -->
+<section id="experience" style="display: flex; flex-direction: column; gap: 28px; scroll-margin-top: 80px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted)">// experience</span>
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Work Experience</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 36px">
+<article style="display: flex; flex-wrap: wrap; gap: 8px 32px">
+<div style="flex: 0 0 150px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; line-height: 24px; color: var(--muted)">Aug 2024 — Present</div>
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">Full Stack Developer</h3>
+<span style="font-size: 15px; color: var(--muted)">· [EMPRESA]</span>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: var(--muted); text-wrap: pretty">Build web and mobile products end to end with React, Next.js and React Native on the front and Node.js and NestJS on the back, backed by PostgreSQL and MySQL. Ship through CI/CD on GitHub Actions with deploys to Google Cloud Run.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">typescript</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">next.js</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">nestjs</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">react native</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">cloud run</span>
+</div>
+</div>
+</article>
+<article style="display: flex; flex-wrap: wrap; gap: 8px 32px">
+<div style="flex: 0 0 150px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; line-height: 24px; color: var(--muted)">Jan 2024 — Present</div>
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 10px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">Front End Developer</h3>
+<span style="font-size: 15px; color: var(--muted)">· OSS</span>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: var(--muted); text-wrap: pretty">Develop and maintain websites for Atuant, a digital marketing agency, using HTML, CSS, Tailwind CSS, Bootstrap, JavaScript, jQuery, React and PHP.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">react</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">tailwind css</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">php</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">jquery</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<!-- education -->
+<section id="education" style="display: flex; flex-direction: column; gap: 28px; scroll-margin-top: 80px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted)">// education</span>
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Education</h2>
+</div>
+<article style="display: flex; flex-wrap: wrap; gap: 8px 32px">
+<div style="flex: 0 0 150px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; line-height: 24px; color: var(--muted)">[ANO] — [ANO]</div>
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 6px; min-width: 0">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">[CURSO]</h3>
+<span style="font-size: 15px; color: var(--muted)">[INSTITUIÇÃO]</span>
+</div>
+</article>
+</section>
+
+<!-- projects -->
+<section id="projects" style="display: flex; flex-direction: column; gap: 28px; scroll-margin-top: 80px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted)">// projects</span>
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Projects</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 20px">
+<article style="display: flex; flex-direction: column; gap: 14px">
+<div aria-hidden="true" style="height: 148px; border-radius: 14px; background: var(--chip); overflow: hidden; display: flex; align-items: center; justify-content: center">
+<pre style="margin: 0; flex: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; line-height: 12px; color: var(--faint); user-select: none">{{coverChart}}</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 0 4px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">MoneyFlow</h3>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted)">in progress</span>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); text-wrap: pretty">Personal finance app for tracking income and expenses, credit card invoices, budgets, savings goals and an investment portfolio.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 2px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">postgresql</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">[stack]</span>
+</div>
+</div>
+</article>
+<article style="display: flex; flex-direction: column; gap: 14px">
+<div aria-hidden="true" style="height: 148px; border-radius: 14px; background: var(--chip); overflow: hidden; display: flex; align-items: center; justify-content: center">
+<pre style="margin: 0; flex: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; line-height: 12px; color: var(--faint); user-select: none">{{coverWave}}</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 0 4px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">[NOME DO PROJETO]</h3>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted)">[status]</span>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); text-wrap: pretty">[Uma ou duas frases sobre o projeto: o problema que resolve e o seu papel nele.]</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 2px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">[stack]</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<!-- skills -->
+<section id="skills" style="display: flex; flex-direction: column; gap: 28px; scroll-margin-top: 80px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted)">// skills</span>
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Skills</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px 32px">
+<div style="flex: 0 0 150px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; line-height: 30px; color: var(--muted)">frontend</div>
+<div style="flex: 1 1 380px; display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">TypeScript</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">JavaScript</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">React</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">Next.js</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">React Native</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">Tailwind CSS</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">Bootstrap</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">HTML</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">CSS</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">jQuery</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 32px">
+<div style="flex: 0 0 150px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; line-height: 30px; color: var(--muted)">backend</div>
+<div style="flex: 1 1 380px; display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">Node.js</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">NestJS</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">PHP</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 32px">
+<div style="flex: 0 0 150px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; line-height: 30px; color: var(--muted)">database</div>
+<div style="flex: 1 1 380px; display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">PostgreSQL</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">MySQL</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 32px">
+<div style="flex: 0 0 150px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; line-height: 30px; color: var(--muted)">devops</div>
+<div style="flex: 1 1 380px; display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">GitHub Actions</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px">Google Cloud Run</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- blog -->
+<section id="blog" style="display: flex; flex-direction: column; gap: 20px; scroll-margin-top: 80px">
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: var(--muted)">// blog</span>
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Blog</h2>
+</div>
+<a class="navlink" href="#blog" style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px">all posts -&gt;</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 20px">
+<a class="post-card" href="#blog" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: var(--fg)">
+<div class="post-cover" aria-hidden="true" style="height: 148px; border-radius: 14px; background: var(--chip); overflow: hidden; display: flex; align-items: center; justify-content: center">
+<pre style="margin: 0; flex: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; line-height: 12px; color: var(--faint); user-select: none">{{coverRings}}</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 0 4px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">[TÍTULO DO POST 1]</h3>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted); flex: none">[DATA]</span>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); text-wrap: pretty">[Resumo do post em uma ou duas frases.]</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 2px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">[tag]</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">[X min read]</span>
+</div>
+</div>
+</a>
+<a class="post-card" href="#blog" style="display: flex; flex-direction: column; gap: 14px; text-decoration: none; color: var(--fg)">
+<div class="post-cover" aria-hidden="true" style="height: 148px; border-radius: 14px; background: var(--chip); overflow: hidden; display: flex; align-items: center; justify-content: center">
+<pre style="margin: 0; flex: none; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10px; line-height: 12px; color: var(--faint); user-select: none">{{coverRain}}</pre>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 0 4px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px">
+<h3 style="margin: 0; font-size: 16px; font-weight: 600">[TÍTULO DO POST 2]</h3>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted); flex: none">[DATA]</span>
+</div>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: var(--muted); text-wrap: pretty">[Resumo do post em uma ou duas frases.]</p>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 2px">
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">[tag]</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--muted)">[X min read]</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+
+</main>
+
+<!-- command palette -->
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}">
+<div onClick="{{closeSearch}}" style="position: fixed; inset: 0; z-index: 50; background: var(--scrim); display: flex; justify-content: center; align-items: flex-start; padding: 96px 16px 16px; box-sizing: border-box">
+<div role="dialog" aria-modal="true" aria-label="Search" onClick="{{stop}}" style="width: 100%; max-width: 560px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 24px 64px rgba(0,0,0,.18); overflow: hidden; display: flex; flex-direction: column">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 14px; height: 52px; border-bottom: 1px solid var(--line)">
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--muted); flex: none"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+<label for="palette-q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search</label>
+<input id="palette-q" class="palette-input" type="text" autocomplete="off" placeholder="Search sections, links, actions…" value="{{q}}" onChange="{{onQuery}}" ref="{{inputRef}}" style="flex-grow: 1; min-width: 0; height: 100%; border: none; background: transparent; color: var(--fg); font: inherit; font-size: 15px">
+<kbd style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 5px; color: var(--muted)">Esc</kbd>
+</div>
+<div style="max-height: 340px; overflow-y: auto; padding: 6px">
+<sc-for list="{{groups}}" as="grp" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; padding-bottom: 4px">
+<div style="padding: 10px 10px 6px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted)">{{grp.name}}</div>
+<sc-for list="{{grp.items}}" as="it" hint-placeholder-count="3">
+<button type="button" onClick="{{it.go}}" onMouseEnter="{{it.hover}}" style="display: flex; align-items: center; gap: 12px; width: 100%; min-height: 44px; padding: 0 10px; border: none; border-radius: 9px; background: {{it.bg}}; color: var(--fg); font: inherit; font-size: 14px; text-align: left; cursor: pointer">
+<span aria-hidden="true" style="width: 18px; flex: none; text-align: center; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 13px; color: var(--muted)">{{it.glyph}}</span>
+<span style="flex-grow: 1">{{it.label}}</span>
+<span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted)">{{it.hint}}</span>
+</button>
+</sc-for>
+</div>
+</sc-for>
+<sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 28px 10px; text-align: center; font-size: 14px; color: var(--muted)">No results for “{{q}}”</div>
+</sc-if>
+</div>
+<div style="display: flex; gap: 16px; padding: 10px 14px; border-top: 1px solid var(--line); font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted)">
+<span>↑↓ navigate</span>
+<span>↵ open</span>
+<span>esc close</span>
+</div>
+</div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"greeting":{"editor":"enum","options":["auto","morning","afternoon","night"],"default":"auto"},"$preview":{"width":1280,"height":3900}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._tick = setInterval(() => this.forceUpdate(), 30000);
+  }
+  componentWillUnmount() {
+    clearInterval(this._tick);
+  }
+  st() {
+    return this.state || {};
+  }
+  rng(seed) {
+    let s = seed >>> 0;
+    return function () {
+      s = (s + 0x6D2B79F5) >>> 0;
+      let t = s;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  period() {
+    const p = this.props.greeting ?? 'auto';
+    if (p !== 'auto') return p;
+    const h = new Date().getHours();
+    if (h >= 5 && h < 12) return 'morning';
+    if (h >= 12 && h < 18) return 'afternoon';
+    return 'night';
+  }
+  theme() {
+    return this.st().theme ?? this.props.theme ?? 'light';
+  }
+  grid(W, H) {
+    const g = [];
+    for (let r = 0; r < H; r++) g.push(new Array(W).fill(' '));
+    return g;
+  }
+  banner(period) {
+    const W = 120, H = 15;
+    const g = this.grid(W, H);
+    const put = (r, c, ch) => { if (r >= 0 && r < H && c >= 0 && c < W) g[r][c] = ch; };
+    const stamp = (r, c, art) => art.forEach((line, i) => { for (let j = 0; j < line.length; j++) put(r + i, c + j, line[j]); });
+
+    const sky = this.rng(period === 'night' ? 11 : 23);
+    const dens = period === 'night' ? 0.05 : 0.012;
+    const glyphs = period === 'night' ? ['.', '.', '*', '+', '.', '\''] : ['.', '`'];
+    for (let r = 0; r < 9; r++) {
+      for (let c = 0; c < W; c++) {
+        if (sky() < dens * (1 - r / 12)) put(r, c, glyphs[Math.floor(sky() * glyphs.length)]);
+      }
+    }
+    const SUN = ['   \\  |  /', ' \'. .---. .\'', '-- (     ) --', ' .\' \'---\' \'.', '   /  |  \\'];
+    const MOON = ['   _.._', ' .\' .-\'`', '/  /', '|  |', '\\  \'.___.;', ' \'._  _.\''];
+    const CLOUD = ['   .--.', '.-(    ).', '(___.__)__)'];
+    if (period === 'morning') { stamp(3, 32, SUN); stamp(1, 66, CLOUD); stamp(4, 88, CLOUD); }
+    else if (period === 'afternoon') { stamp(0, 72, SUN); stamp(2, 24, CLOUD); stamp(5, 46, CLOUD); }
+    else { stamp(0, 68, MOON); }
+
+    const sh = this.rng(5), win = this.rng(9);
+    let x = -2;
+    while (x < W) {
+      const w = 4 + Math.floor(sh() * 6);
+      const h = 2 + Math.floor(sh() * 7);
+      const top = 13 - h;
+      for (let r = top + 1; r <= 13; r++) for (let c = x; c < x + w; c++) put(r, c, ' ');
+      for (let c = x + 1; c < x + w - 1; c++) put(top, c, '_');
+      for (let r = top + 1; r <= 13; r++) { put(r, x, '|'); put(r, x + w - 1, '|'); }
+      for (let r = top + 2; r <= 12; r += 2) {
+        for (let c = x + 2; c < x + w - 2; c += 2) {
+          const v = win();
+          put(r, c, period === 'night' ? (v < 0.4 ? '#' : '.') : (v < 0.55 ? ':' : '.'));
+        }
+      }
+      for (let c = x + 1; c < x + w - 1; c++) put(13, c, '_');
+      if (h >= 6 && sh() < 0.6) {
+        const m = x + Math.floor(w / 2);
+        put(top - 1, m, '|');
+        put(top - 2, m, period === 'night' ? '*' : '.');
+      }
+      x += w + (sh() < 0.35 ? 1 : 0) - (sh() < 0.3 ? 1 : 0);
+    }
+    const river = ['~', '~', '-', '~', '_', '~', '~', '-'];
+    for (let c = 0; c < W; c++) put(14, c, river[(c * 5 + Math.floor(c / 3)) % river.length]);
+    return g.map((row) => row.join('')).join('\n');
+  }
+  coverChart() {
+    const W = 64, H = 10;
+    const g = this.grid(W, H);
+    const R = this.rng(3);
+    for (let c = 0; c < W; c++) g[H - 1][c] = c % 4 === 0 ? '+' : '-';
+    let level = 2;
+    for (let c = 1; c < W - 1; c += 3) {
+      level = Math.max(1, Math.min(H - 2, level + (R() - 0.3) * 1.6));
+      const h = Math.round(level);
+      for (let r = H - 2; r > H - 2 - h; r--) {
+        g[r][c] = r === H - 1 - h ? '_' : '#';
+        g[r][c + 1] = r === H - 1 - h ? '_' : '#';
+      }
+    }
+    g[0][W - 6] = '$';
+    return g.map((row) => row.join('')).join('\n');
+  }
+  coverWave() {
+    const W = 64, H = 10;
+    const ramp = ' .:-=+*#';
+    const rows = [];
+    for (let r = 0; r < H; r++) {
+      let line = '';
+      for (let c = 0; c < W; c++) {
+        const v = Math.sin(c / 6 + r / 2) + Math.sin(c / 11 - r / 3);
+        line += ramp[Math.max(0, Math.min(ramp.length - 1, Math.floor(((v + 2) / 4) * ramp.length)))];
+      }
+      rows.push(line);
+    }
+    return rows.join('\n');
+  }
+  coverRings() {
+    const W = 64, H = 10;
+    const ramp = ' .:-=+';
+    const rows = [];
+    for (let r = 0; r < H; r++) {
+      let line = '';
+      for (let c = 0; c < W; c++) {
+        const dx = (c - W / 2) / 2.1, dy = r - H / 2 + 0.5;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        const v = Math.cos(d * 1.15);
+        line += d < 1.2 ? '@' : ramp[Math.max(0, Math.min(ramp.length - 1, Math.floor(((v + 1) / 2) * ramp.length)))];
+      }
+      rows.push(line);
+    }
+    return rows.join('\n');
+  }
+  coverRain() {
+    const W = 64, H = 10;
+    const g = this.grid(W, H);
+    const R = this.rng(17);
+    for (let c = 0; c < W; c++) {
+      if (R() < 0.45) {
+        const len = 2 + Math.floor(R() * 6);
+        const start = Math.floor(R() * H);
+        for (let i = 0; i < len; i++) {
+          const r = (start + i) % H;
+          g[r][c] = i === len - 1 ? '0' : (R() < 0.5 ? '1' : '/');
+        }
+      }
+    }
+    return g.map((row) => row.join('')).join('\n');
+  }
+  contrib() {
+    const R = this.rng(42);
+    const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const start = new Date(today);
+    start.setDate(today.getDate() - 364 - today.getDay());
+    const weeks = [];
+    let prev = -1;
+    for (let w = 0; w < 53; w++) {
+      const first = new Date(start);
+      first.setDate(start.getDate() + w * 7);
+      const m = first.getMonth();
+      let label = '';
+      if (m !== prev) {
+        if (w > 0 || first.getDate() <= 14) label = MONTHS[m];
+        prev = m;
+      }
+      const wave = 0.55 + 0.45 * Math.sin(w / 4.1 + 1.3);
+      const days = [];
+      for (let d = 0; d < 7; d++) {
+        const dt = new Date(first);
+        dt.setDate(first.getDate() + d);
+        if (dt > today) { days.push({ bg: 'transparent' }); continue; }
+        const weekday = d > 0 && d < 6;
+        const v = R() * wave * (weekday ? 1.25 : 0.55);
+        const lvl = v < 0.18 ? 0 : v < 0.42 ? 1 : v < 0.66 ? 2 : v < 0.88 ? 3 : 4;
+        days.push({ bg: 'var(--c' + lvl + ')' });
+      }
+      weeks.push({ label: label, days: days });
+    }
+    return weeks;
+  }
+  commands() {
+    return [
+      { group: 'Go to', label: 'About', glyph: '#', hint: 'section', href: '#about' },
+      { group: 'Go to', label: 'GitHub contributions', glyph: '#', hint: 'section', href: '#github' },
+      { group: 'Go to', label: 'Work Experience', glyph: '#', hint: 'section', href: '#experience' },
+      { group: 'Go to', label: 'Education', glyph: '#', hint: 'section', href: '#education' },
+      { group: 'Go to', label: 'Projects', glyph: '#', hint: 'section', href: '#projects' },
+      { group: 'Go to', label: 'Skills', glyph: '#', hint: 'section', href: '#skills' },
+      { group: 'Go to', label: 'Blog', glyph: '#', hint: 'section', href: '#blog' },
+      { group: 'Links', label: 'GitHub', glyph: '↗', hint: 'github.com', href: 'https://github.com/' },
+      { group: 'Links', label: 'LinkedIn', glyph: '↗', hint: 'linkedin.com', href: 'https://www.linkedin.com/' },
+      { group: 'Links', label: 'X', glyph: '↗', hint: 'x.com', href: 'https://x.com/' },
+      { group: 'Links', label: 'Email', glyph: '@', hint: 'mail', href: 'mailto:' },
+      { group: 'Actions', label: 'Toggle theme', glyph: '~', hint: 'light / dark', action: 'theme' }
+    ];
+  }
+  filtered() {
+    const q = (this.st().q || '').trim().toLowerCase();
+    return this.commands().filter((c) => !q || c.label.toLowerCase().indexOf(q) !== -1 || c.group.toLowerCase().indexOf(q) !== -1);
+  }
+  toggle() {
+    this.setState({ theme: this.theme() === 'dark' ? 'light' : 'dark' });
+  }
+  run(cmd) {
+    this.setState({ open: false, q: '', sel: 0 });
+    if (cmd.action === 'theme') { this.toggle(); return; }
+    if (cmd.href.charAt(0) === '#') {
+      setTimeout(() => {
+        const el = document.getElementById(cmd.href.slice(1));
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 0);
+      return;
+    }
+    window.open(cmd.href, '_blank', 'noopener');
+  }
+  renderVals() {
+    const s = this.st();
+    const period = this.period();
+    const MINI = {
+      morning: ['  \\ | /', '-- .-. --', '__(   )__'],
+      afternoon: ['  \\  |  /', '--  ( )  --', '  /  |  \\'],
+      night: ['*    _.._', '   .\' .-\'`    .', '  /  /', '  |  |      *', '  \\  \'.___.;', '   \'._  _.\'']
+    };
+    let time = '--:--';
+    try {
+      time = new Date().toLocaleTimeString('en-GB', { timeZone: 'America/Sao_Paulo', hour: '2-digit', minute: '2-digit' });
+    } catch (e) {}
+
+    const list = this.filtered();
+    const sel = Math.min(s.sel || 0, Math.max(list.length - 1, 0));
+    const groups = [];
+    list.forEach((cmd, i) => {
+      let grp = groups.find((g) => g.name === cmd.group);
+      if (!grp) { grp = { name: cmd.group, items: [] }; groups.push(grp); }
+      grp.items.push({
+        label: cmd.label,
+        glyph: cmd.glyph,
+        hint: cmd.hint,
+        bg: i === sel ? 'var(--hover)' : 'transparent',
+        go: () => this.run(cmd),
+        hover: () => { if ((this.st().sel || 0) !== i) this.setState({ sel: i }); }
+      });
+    });
+
+    const dark = this.theme() === 'dark';
+    return {
+      themeClass: dark ? 't-dark' : 't-light',
+      isDark: dark,
+      isLight: !dark,
+      greeting: { morning: 'Good morning', afternoon: 'Good afternoon', night: 'Good night' }[period],
+      banner: this.banner(period),
+      mini: MINI[period].join('\n'),
+      coverChart: this.coverChart(),
+      coverWave: this.coverWave(),
+      coverRings: this.coverRings(),
+      coverRain: this.coverRain(),
+      time: time,
+      weeks: this.contrib(),
+      open: !!s.open,
+      q: s.q || '',
+      groups: groups,
+      empty: list.length === 0,
+      openSearch: () => this.setState({ open: true, q: '', sel: 0 }),
+      closeSearch: () => this.setState({ open: false }),
+      stop: (e) => e.stopPropagation(),
+      toggleTheme: () => this.toggle(),
+      onQuery: (e) => this.setState({ q: e.target.value, sel: 0 }),
+      inputRef: (el) => {
+        if (el && el !== this._input) { this._input = el; setTimeout(() => el.focus(), 0); }
+        if (!el) this._input = null;
+      },
+      onKey: (e) => {
+        const k = e.key || '';
+        if ((e.ctrlKey || e.metaKey) && k.toLowerCase() === 'k') {
+          e.preventDefault();
+          this.setState({ open: !this.st().open, q: '', sel: 0 });
+          return;
+        }
+        if (!this.st().open) return;
+        const items = this.filtered();
+        const cur = Math.min(this.st().sel || 0, Math.max(items.length - 1, 0));
+        if (k === 'Escape') { e.preventDefault(); this.setState({ open: false }); }
+        else if (k === 'ArrowDown' && items.length) { e.preventDefault(); this.setState({ sel: (cur + 1) % items.length }); }
+        else if (k === 'ArrowUp' && items.length) { e.preventDefault(); this.setState({ sel: (cur - 1 + items.length) % items.length }); }
+        else if (k === 'Enter' && items[cur]) { e.preventDefault(); this.run(items[cur]); }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "Nathan Ferreira",
+  "role": "Full Stack Developer",
+  "location": "São Paulo, Brazil",
+  "timezoneLabel": "GMT-3",
+  "avatar": "/nathan-perfil.jpeg",
+  "githubLogin": "nahtanpng",
+  "bio": {
+    "lead": "I’m Nathan Ferreira — a Full Stack Developer from São Paulo with nearly 3 years shipping to production, known for owning products end to end, from the database to the interface, and for an obsessive attention to detail.",
+    "rest": "Passionate about exploring new technologies and turning ideas into reality through polished, thoughtfully crafted projects — from web apps to CLIs and Discord bots."
+  }
+}

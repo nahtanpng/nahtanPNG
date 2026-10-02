@@ -1,0 +1,53 @@
+[
+  {
+    "category": "frontend",
+    "skills": [
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "React Native",
+      "Tailwind CSS",
+      "Bootstrap",
+      "HTML",
+      "CSS",
+      "jQuery"
+    ]
+  },
+  {
+    "category": "backend",
+    "skills": [
+      "Node.js",
+      "NestJS",
+      "Express",
+      "Fastify",
+      "Prisma",
+      "TypeORM",
+      "PHP",
+      "Python",
+      "Go",
+      "Java",
+      "Spring Boot"
+    ]
+  },
+  {
+    "category": "database",
+    "skills": [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "SQLite",
+      "Firebase"
+    ]
+  },
+  {
+    "category": "devops",
+    "skills": [
+      "GitHub Actions",
+      "Docker",
+      "AWS",
+      "GCP",
+      "Terraform"
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "role": "Full Stack Developer",
+    "company": "OSS Brasil",
+    "period": "Jan 2024 — Present",
+    "description": "Cut deploy time by 85% (from ~15–20 min to 2 min) by rebuilding the GitHub Actions CI/CD pipeline and moving infrastructure to Cloud Run. Led the migration of a legacy PHP system to Node.js, and build products with React, Next.js, React Native and NestJS. Tune PostgreSQL and MySQL with materialized views, composite indexes and query optimization.",
+    "stack": [
+      "typescript",
+      "next.js",
+      "nestjs",
+      "react native",
+      "GCP",
+      "tailwind css",
+      "php",
+      "python"
+    ]
+  }
+]
