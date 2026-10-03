@@ -19,7 +19,7 @@
       "node.js",
       "cli"
     ],
-    "cover": "wave",
+    "cover": "terminal",
     "href": "https://github.com/nahtanpng/pokedex-cli"
   }
 ]
