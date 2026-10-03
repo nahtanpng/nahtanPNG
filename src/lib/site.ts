@@ -5,7 +5,7 @@ export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://nathanferr
 
 export const SITE_HOST = new URL(SITE_URL).host;
 
-export const SITE_TITLE = `${profile.name} — ${profile.role}`;
+export const SITE_TITLE = `${profile.name}`;
 
 export function absoluteUrl(path = "/") {
   return new URL(path, SITE_URL).toString();

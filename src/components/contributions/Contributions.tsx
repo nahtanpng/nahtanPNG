@@ -19,7 +19,7 @@ export async function Contributions() {
       </div>
       <ContributionGraph weeks={weeks} />
       <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] text-muted">
-        <a href={profileUrl} target="_blank" rel="noopener noreferrer" className="text-muted">
+        <a href={profileUrl} target="_blank" rel="noopener noreferrer" className="text-muted hover:underline transition duration-150">
           github.com/{profile.githubLogin}
         </a>
         <ContributionLegend />
