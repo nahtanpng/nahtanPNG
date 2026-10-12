@@ -7,7 +7,7 @@ import { SocialLinks } from "./SocialLinks";
 
 export function Profile() {
   return (
-    <section aria-label="Profile" className="flex flex-col gap-7">
+    <section aria-label="Profile" className="-mb-10 flex flex-col">
       <div className="flex flex-col">
         <AsciiBanner />
         <div className="flex flex-col gap-4 px-4">
@@ -29,9 +29,9 @@ export function Profile() {
               <LocalClock suffix={profile.timezoneLabel} />
             </div>
           </div>
+          <SocialLinks />
         </div>
       </div>
-      <SocialLinks />
     </section>
   );
 }
