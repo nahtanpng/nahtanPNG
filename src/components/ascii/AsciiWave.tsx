@@ -8,7 +8,7 @@ const FONT_SIZE = 11;
 const LINE_HEIGHT = 13;
 const MOUSE_RADIUS = 220;
 
-type Exclusion = {
+export type Exclusion = {
   radiusX: number;
   radiusY: number;
   fade: number;

@@ -1,18 +1,27 @@
-import { AsciiLogoMark } from "./AsciiLogoMark";
-import { AsciiWave } from "./AsciiWave";
+import { cn } from "@/lib/cn";
+import { type Exclusion, AsciiWave } from "./AsciiWave";
 
-const LOGO_EXCLUSION = { radiusX: 110, radiusY: 96, fade: 36 };
+const EDGE_FADE =
+  "[mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent),linear-gradient(to_bottom,transparent,black_15%,black_80%,transparent)]";
 
-export function AsciiBanner() {
+type AsciiBannerProps = {
+  exclusion?: Exclusion;
+  className?: string;
+  maskClassName?: string;
+  children?: React.ReactNode;
+};
+
+export function AsciiBanner({
+  className = "h-50",
+  maskClassName = EDGE_FADE,
+  children = null
+}: AsciiBannerProps) {
   return (
-    <div
-      aria-hidden="true"
-      className="relative h-50 overflow-hidden [mask-composite:intersect] [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent),linear-gradient(to_bottom,transparent,black_15%,black_80%,transparent)]"
-    >
-      <AsciiWave exclusion={LOGO_EXCLUSION} className="absolute inset-0" />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <AsciiLogoMark />
+    <div className={cn("relative", className)}>
+      <div aria-hidden="true" className={cn("absolute inset-0 overflow-hidden", maskClassName)}>
+        <AsciiWave className="absolute inset-0" />
       </div>
+      <div className="absolute inset-0 flex items-center justify-center">{children}</div>
     </div>
   );
 }
