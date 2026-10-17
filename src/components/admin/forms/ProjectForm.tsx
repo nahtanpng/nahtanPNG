@@ -18,11 +18,14 @@ export function ProjectForm({ action, item }: { action: FormAction; item?: Proje
             <Field label="Nome" error={errors.name}>
               <TextInput name="name" defaultValue={item?.name} invalid={!!errors.name} />
             </Field>
-            <Field label="Status" error={errors.status} hint="Ex.: in progress, on npm">
+            <Field label="Status" error={errors.status} hint="Ex.: in progress, on npm. Usado se não houver release">
               <TextInput name="status" defaultValue={item?.status} invalid={!!errors.status} />
             </Field>
             <Field label="Link" error={errors.href} hint="Opcional">
               <TextInput name="href" defaultValue={item?.href} invalid={!!errors.href} />
+            </Field>
+            <Field label="Repositório" error={errors.repo} hint="Opcional, owner/repo. Mostra o último release">
+              <TextInput name="repo" defaultValue={item?.repo} invalid={!!errors.repo} />
             </Field>
           </FieldGrid>
           <Field label="Descrição" error={errors.description}>

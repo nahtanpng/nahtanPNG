@@ -66,6 +66,7 @@ export const resources = {
       stack: rules.tags(),
       cover: rules.cover(),
       href: rules.optionalLink(),
+      repo: rules.optionalRepo(),
     },
     summary: (item) => ({ title: item.name, subtitle: item.status }),
   }),
