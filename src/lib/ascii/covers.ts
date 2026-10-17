@@ -14,6 +14,7 @@ export const ASCII_KINDS = [
   "synth",
   "terminal",
   "network",
+  "dock",
 ] as const;
 
 export type AsciiKind = (typeof ASCII_KINDS)[number];
@@ -271,6 +272,51 @@ function network() {
   return render(g);
 }
 
+function dock() {
+  const g = grid(W, H);
+  const put = (r: number, c: number, s: string) => [...s].forEach((ch, i) => c + i < W && (g[r][c + i] = ch));
+  const left = 36;
+  const right = 92;
+  const top = 7;
+  const bottom = 11;
+
+  for (let r = 0; r < top; r++) {
+    for (let c = 0; c < W; c++) {
+      const v = (Math.sin(c / 7 + r / 1.5) + Math.sin(c / 13 - r / 2) + 2) / 4;
+      if ((c + r * 2) % 3 === 0) g[r][c] = v > 0.75 ? ":" : v > 0.4 ? "." : " ";
+    }
+  }
+  for (let r = top - 4; r < top; r++) put(r, 50, " ".repeat(9));
+  put(top - 1, left, " ".repeat(right - left + 1));
+
+  put(top, left, "." + "-".repeat(right - left - 1) + ".");
+  for (let r = top + 1; r < bottom; r++) put(r, left, "|" + " ".repeat(right - left - 1) + "|");
+  put(bottom, left, "'" + "-".repeat(right - left - 1) + "'");
+
+  const icon = (c: number, glyph: string, running: boolean) => {
+    put(top + 1, c, ".---.");
+    put(top + 2, c, `| ${glyph} |`);
+    put(top + 3, c, "'---'");
+    if (running) put(bottom + 1, c + 2, ".");
+  };
+  icon(39, ">", true);
+  icon(45, "#", false);
+  put(top - 3, 51, ".-----.");
+  put(top - 2, 51, "|     |");
+  put(top - 1, 51, "|  @  |");
+  put(top, 51, "|     |");
+  put(top + 1, 51, "'-----'");
+  put(bottom + 1, 54, ".");
+  icon(59, "~", true);
+  icon(65, "*", false);
+
+  for (let r = top + 1; r < bottom; r++) put(r, 71, ":");
+  put(top + 1, 73, "|> weird fishes");
+  put(top + 2, 73, "====------ 2:13");
+  put(top + 3, 73, "|<  ||  >|");
+  return render(g);
+}
+
 export const covers: Record<AsciiKind, () => string> = {
   chart,
   wave,
@@ -284,4 +330,5 @@ export const covers: Record<AsciiKind, () => string> = {
   synth,
   terminal,
   network,
+  dock,
 };
