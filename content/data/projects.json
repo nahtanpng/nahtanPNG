@@ -1,5 +1,19 @@
 [
   {
+    "name": "pier",
+    "status": "v0.3.0",
+    "description": "Cross-platform dock that replaces the macOS Dock, the Windows taskbar and the Linux panel with a glass bar for your apps, widgets and a shortcut for every app.",
+    "stack": [
+      "rust",
+      "tauri",
+      "typescript",
+      "react"
+    ],
+    "cover": "dock",
+    "href": "https://pier-dock.vercel.app/",
+    "repo": "pier-dock/pier-dock"
+  },
+  {
     "name": "money-flow",
     "status": "in progress",
     "description": "Personal finance app for tracking income and expenses, credit card invoices, budgets, savings goals and an investment portfolio.",

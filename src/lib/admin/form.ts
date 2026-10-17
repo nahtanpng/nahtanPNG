@@ -37,6 +37,12 @@ export const rules = {
     return /^(https?:\/\/|\/)/.test(value) ? ok(value) : fail("Use http(s):// ou um caminho /.");
   },
 
+  optionalRepo: (): Rule<string | undefined> => (raw) => {
+    const value = asText(raw);
+    if (!value) return ok(undefined);
+    return /^[\w.-]+\/[\w.-]+$/.test(value) ? ok(value) : fail("Use o formato owner/repo.");
+  },
+
   oneOf: <const T extends string>(values: readonly T[], label: string): Rule<T> => (raw) => {
     const value = asText(raw);
     return (values as readonly string[]).includes(value) ? ok(value as T) : fail(`${label} inválido.`);

@@ -103,3 +103,21 @@ export async function getContributions(login: string): Promise<Contributions> {
     return { total: null, weeks: emptyCalendar() };
   }
 }
+
+export async function getLatestRelease(repo: string): Promise<string | null> {
+  const token = process.env.GITHUB_TOKEN;
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
+      headers: { Accept: "application/vnd.github+json", ...(token && { Authorization: `bearer ${token}` }) },
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) throw new Error(`GitHub API responded ${res.status}`);
+
+    const { tag_name } = (await res.json()) as { tag_name?: string };
+    return tag_name ?? null;
+  } catch (error) {
+    console.error(`Failed to load latest release for ${repo}`, error);
+    return null;
+  }
+}

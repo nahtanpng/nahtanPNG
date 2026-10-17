@@ -49,6 +49,7 @@ export type Project = {
   stack: string[];
   cover: AsciiKind;
   href?: string;
+  repo?: string;
 };
 
 export type SkillGroup = {
