@@ -22,11 +22,11 @@ export function SearchButton() {
       type="button"
       onClick={() => setOpen(true)}
       aria-label={`Search (${shortcut})`}
-      className="flex h-9 cursor-pointer items-center gap-2 rounded-[9px] border border-line bg-chip pr-1.5 pl-2.5 text-[13px] text-muted transition-colors duration-150 hover:border-faint"
+      className="flex h-9 cursor-pointer items-center gap-2 rounded-[9px] border border-line bg-chip pr-1.5 pl-2.5 text-[13px] text-muted transition-colors duration-150 hover:border-faint max-[720px]:pr-3"
     >
       <SearchIcon size={15} />
-      <span className="min-w-16 text-left max-[720px]:hidden">Search…</span>
-      <Kbd className="bg-bg">{shortcut}</Kbd>
+      <span className="min-w-16 text-left max-[720px]:min-w-24">Search…</span>
+      <Kbd className="bg-bg max-[720px]:hidden">{shortcut}</Kbd>
     </button>
   );
 }
