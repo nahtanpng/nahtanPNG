@@ -21,6 +21,7 @@
 
 - <b><a href="https://github.com/nahtanpng/pokedex-cli">pokedex-cli</a></b> — terminal Pokédex for quick mid-run lookups: weaknesses, evolution and where to find it, for the game you're actually playing.
 - <b><a href="https://github.com/nahtanpng/node-api-terraform">node-api-terraform</a></b> — serverless transactions API on AWS Lambda + DynamoDB, provisioned with Terraform.
+- <b><a href="https://github.com/pier-dock/pier-dock">pier-dock</a></b> — cross-platform dock that replaces the macOS Dock, the Windows taskbar and the Linux panel with a glass bar for your apps, widgets and a shortcut for every app.
 - <b><a href="https://github.com/nahtanpng/xml-to-excel">xml-to-excel</a></b> — turns raw NF-e/NFS-e invoice XML into a clean Excel report. Built for people who don't use a terminal.
 - <b><a href="https://github.com/nahtanpng/cheapo-bot">cheapo-bot</a></b> — Discord economy bot.
 
