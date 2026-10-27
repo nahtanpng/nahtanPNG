@@ -3,11 +3,11 @@
 
 <pre><i>Each dream you leave behind is a part of your future that will no longer exist.</i></pre>
 
+<hr>
+
 [<a href="mailto:nathan.ferreiira.dev@gmail.com">e-mail</a>]
 [<a href="https://www.linkedin.com/in/nathanferreiradev">linkedin</a>]
 [<a href="https://discord.com/users/457725135940616202">discord</a>]
-
-<hr>
 
 <div align="left">
 
@@ -16,21 +16,6 @@
 - Enthusiast of software development.
 - Currently working with <b>Nest.js</b>, <b>React</b> & <b>TypeScript</b>.
 - Dedicated to deepening my understanding of cloud computing (AWS & GCP), software architecture, devops, and low-level.
-
-/stuff
-
-- <b><a href="https://github.com/nahtanpng/pokedex-cli">pokedex-cli</a></b> — terminal Pokédex for quick mid-run lookups: weaknesses, evolution and where to find it, for the game you're actually playing.
-- <b><a href="https://github.com/pier-dock/pier-dock">pier-dock</a></b> — cross-platform dock that replaces the macOS Dock, the Windows taskbar and the Linux panel with a glass bar for your apps, widgets and a shortcut for every app.
-- <b><a href="https://github.com/nahtanpng/node-api-terraform">node-api-terraform</a></b> — serverless transactions API on AWS Lambda + DynamoDB, provisioned with Terraform.
-- <b><a href="https://github.com/nahtanpng/xml-to-excel">xml-to-excel</a></b> — turns raw NF-e/NFS-e invoice XML into a clean Excel report. Built for people who don't use a terminal.
-- <b><a href="https://github.com/nahtanpng/cheapo-bot">cheapo-bot</a></b> — Discord economy bot.
-
-/links
-
-[<a href="https://www.boot.dev/u/nahtanpng">boot.dev</a>]
-[<a href="https://cursos.alura.com.br/user/nahtanpng">alura</a>]
-[<a href="https://www.cloudskillsboost.google/public_profiles/1f11381f-0db2-4d43-8bbf-e8e236f214c2">gcp skillboost</a>]
-[<a href="https://skillsprofile.skillbuilder.aws/user/nahtanpng/certification-badges">aws skill builder</a>]
 
 </div>
 
