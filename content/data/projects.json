@@ -14,17 +14,6 @@
     "repo": "pier-dock/pier-dock"
   },
   {
-    "name": "money-flow",
-    "status": "in progress",
-    "description": "Personal finance app for tracking income and expenses, credit card invoices, budgets, savings goals and an investment portfolio.",
-    "stack": [
-      "java",
-      "spring boot",
-      "postgresql"
-    ],
-    "cover": "chart"
-  },
-  {
     "name": "pokedex-cli",
     "status": "on npm",
     "description": "Terminal Pokédex for quick mid-run lookups: weaknesses, evolution, where to find it and the sprite, all for the game you're actually playing.",
